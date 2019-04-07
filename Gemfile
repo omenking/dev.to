@@ -18,7 +18,7 @@ gem "acts_as_follower", github: "thepracticaldev/acts_as_follower", branch: "mas
 gem "acts-as-taggable-on", "~> 6.0"
 gem "addressable", "~> 2.5", ">= 2.5.2"
 gem "administrate", "~> 0.11"
-gem "ahoy_email", "~> 0.5"
+gem "ahoy_email", "~> 1.0"
 gem "airbrake", "~> 8.1"
 gem "algoliasearch-rails", "~> 1.21"
 gem "algorithmia", "~> 1.0"
