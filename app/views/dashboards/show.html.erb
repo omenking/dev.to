@@ -1,6 +1,6 @@
 <% title "Dashboard - DEV" %>
 
-<div class="dashboard-container" id="user-dashboard">
+<div class="dashboard-container" id="user-dashboard-articles">
   <%= render "actions" %>
   <% if @user.org_admin && @user.organization && (params[:which].blank? || params[:which] == "organization") %>
     <h1>

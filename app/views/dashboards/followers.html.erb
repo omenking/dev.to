@@ -1,6 +1,6 @@
 <% title "Dashboard - DEV" %>
 
-<div class="dashboard-container" id="user-dashboard">
+<div class="dashboard-container" id="user-dashboard-followers">
   <%= render "actions" %>
   <% if @user.org_admin && @user.organization %>
     <h1>
@@ -14,18 +14,23 @@
       <% end %>
     </h1>
   <% end %>
-  <% @follows.each do |follow| %>
-    <% user = follow.follower %>
-    <% if user %>
-      <div class="single-article">
-        <a href="<%= user.path %>" class="block-link">
-          <h2>
-            <img alt="<%= user.username %> profile image" src="<%= ProfileImage.new(user).get(60) %>" />
-            <%= user.name %>
-            <span class="dashboard-username">@<%= user.username %></span>
-          </h2>
-        </a>
-      </div>
+  <div class="followers-list" id="followers-list">
+    <% @follows.each do |follow| %>
+      <% user = follow.follower %>
+      <% if user %>
+        <div class="single-article">
+          <a href="<%= user.path %>" class="block-link">
+            <h2>
+              <img alt="<%= user.username %> profile image" src="<%= ProfileImage.new(user).get(60) %>" />
+              <%= user.name %>
+              <span class="dashboard-username">@<%= user.username %></span>
+            </h2>
+          </a>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div class="loading-followers" id="loading-followers">
+    loading...
+  </div>
 </div>

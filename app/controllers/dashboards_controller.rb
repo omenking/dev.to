@@ -24,10 +24,6 @@ class DashboardsController < ApplicationController
     fetch_and_authorize_user
     @follows = @user.follows_by_type("User").
       order("created_at DESC").includes(:followable).limit(80)
-    @followed_tags = @user.follows_by_type("ActsAsTaggableOn::Tag").
-      order("points DESC").includes(:followable).limit(80)
-    @followed_organizations = @user.follows_by_type("Organization").
-      order("created_at DESC").includes(:followable).limit(80)
   end
 
   def followers
@@ -39,6 +35,18 @@ class DashboardsController < ApplicationController
       @follows = Follow.where(followable_id: @user.organization_id, followable_type: "Organization").
         includes(:follower).order("created_at DESC").limit(80)
     end
+  end
+
+  def organization_following
+    fetch_and_authorize_user
+    @followed_organizations = @user.follows_by_type("Organization").
+      order("created_at DESC").includes(:followable).limit(80)
+  end
+
+  def tags
+    fetch_and_authorize_user
+    @followed_tags = @user.follows_by_type("ActsAsTaggableOn::Tag").
+      order("points DESC").includes(:followable).limit(80)
   end
 
   def pro

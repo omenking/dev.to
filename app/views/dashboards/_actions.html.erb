@@ -7,8 +7,16 @@
     <span>FOLLOWERS</span>
     <span>(<%= @user.followers_count %>)</span>
   </a>
-  <a class="action <%= "active" if params[:action] == "following" %>" href="/dashboard/following">
+  <a class="action <%= "active" if params[:action] == "user_following" %>" href="/dashboard/following">
     <span>FOLLOWING</span>
-    <span>(<%= @user.following_users_count + @user.following_tags_count %>)</span>
+    <span>(<%= @user.following_users_count %>)</span>
+  </a>
+  <a class="action <%= "active" if params[:action] == "organization_following" %>" href="/dashboard/organization_following">
+    <span>ORGANIZATIONS</span>
+    <span>(<%= @user.following_orgs_count %>)</span>
+  </a>
+  <a class="action <%= "active" if params[:action] == "tag_following" %>" href="/dashboard/tags">
+    <span>TAGS</span>
+    <span>(<%= @user.following_tags_count %>)</span>
   </a>
 </div>

@@ -263,7 +263,11 @@ Rails.application.routes.draw do
   get "/dashboard" => "dashboards#show"
   get "/dashboard/pro" => "dashboards#pro"
   get "dashboard/pro/org/:org_id" => "dashboards#pro"
-  get "dashboard/following" => "dashboards#following"
+
+  get "dashboard/user_following" => "dashboards#following"
+  get "dashboard/organization_following" => "dashboards#organization_following"
+  get "dashboard/tags" => "dashboards#tags"
+
   get "/dashboard/:which" => "dashboards#followers",
       constraints: {
         which: /organization_user_followers|user_followers/
