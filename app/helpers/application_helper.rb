@@ -213,4 +213,14 @@ module ApplicationHelper
   def community_qualified_name
     "The #{ApplicationConfig['COMMUNITY_NAME']} Community"
   end
+
+  def comment_dataset_json(commentable, commentable_type)
+    {
+      id: nil,
+      body_markdown: "### hello world",
+      commentable_id: commentable.id,
+      commentable_type: commentable_type,
+      parent_id: nil
+    }.to_json
+  end
 end

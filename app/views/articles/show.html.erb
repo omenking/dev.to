@@ -187,7 +187,7 @@
       <% end %>
     <% end %>
     <%= render "articles/org_branding", organization: @organization %>
-    <%= render "articles/full_comment_area" %>
+    <%= render "articles/comments" %>
   </div>
   <% cache("article-bottom-content-#{@article.id}", expires_in: 18.hours) do %>
     <% @classic_article = Suggester::Articles::Classic.new(@article, not_ids: [@article.id]).get.first %>
@@ -230,3 +230,4 @@
 <% end %>
 
 <%= javascript_pack_tag "webShare", defer: true %>
+<%= javascript_pack_tag "comments", defer: true %>
